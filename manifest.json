@@ -1,0 +1,15 @@
+{
+    "manifest_version": 1,
+    "name": "Map Project",
+    "version": "1.0",
+    "description": "crowd sourcing reporting and updating on infrastructure damage",
+  
+    "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "https://www.google.com/maps/*"
+        ]
+      }
+    ]
+  }

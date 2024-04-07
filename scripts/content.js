@@ -1,32 +1,35 @@
-(() =>{
-    let mapButtons, googleMap;
-    let currentLocation = "";
+(() => {
+    let mapButtons;
 
-    chrome.runtime.onMessage.addListener((obj, sender, response) => {
-        const {value, locationId} = obj;
+    const addNewReportHandler = () => {
+        const locationBtn = document.querySelector('.ZqLNQd.t9f27');
+        if (locationBtn) {
+            const ariaLabel = locationBtn.getAttribute('aria-label');
+            console.log(ariaLabel);
+        }
+    };
 
-        currentLocation = locationId;
-        newReportAdded();
-    });
-
-    console.log("HERE")
     const newReportAdded = () => {
         const reportBtnExists = document.getElementsByClassName("report-btn")[0];
         mapButtons = document.getElementsByClassName("BOw3ud");
-        console.log("mapButtons:", mapButtons);
 
         if (!reportBtnExists && mapButtons.length > 0) {
-            console.log("Entering if statement");
             const reportBtn = document.createElement("img");
             reportBtn.src = chrome.runtime.getURL("../assets/reportIcon.png");
             reportBtn.className = "report-btn";
             reportBtn.title = "Report an obstacle";
-            
+
+            console.log(reportBtn);
 
             mapButtons[0].appendChild(reportBtn); // Append to the first element in the NodeList
             reportBtn.addEventListener("click", addNewReportHandler);
         }
+    };
 
-    }
+    chrome.runtime.onMessage.addListener((obj, sender, response) => {
+        const { value, locationId } = obj;
+        newReportAdded();
+    });
+
     newReportAdded();
 })();

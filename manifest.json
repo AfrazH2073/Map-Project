@@ -3,7 +3,7 @@
     "name": "Map Project",
     "version": "1.0",
     "description": "A crowdsourced mapping extension that enables volunteers and first responders to report and update information on road conditions, infrastructure damage, and resource needs in disaster-affected areas, facilitating more efficient routing and resource allocation.",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "activeTab"],
     "host_permissions": ["https://www.google.com/maps/*"],
     "background": {
       "service_worker": "background.js"

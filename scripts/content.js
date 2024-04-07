@@ -15,11 +15,9 @@
 
         if (!reportBtnExists && mapButtons.length > 0) {
             const reportBtn = document.createElement("img");
-            reportBtn.src = chrome.runtime.getURL("../assets/reportIcon.png");
+            reportBtn.src = chrome.runtime.getURL("assets/reportIcon.png");
             reportBtn.className = "report-btn";
             reportBtn.title = "Report an obstacle";
-
-            console.log(reportBtn);
 
             mapButtons[0].appendChild(reportBtn); // Append to the first element in the NodeList
             reportBtn.addEventListener("click", addNewReportHandler);

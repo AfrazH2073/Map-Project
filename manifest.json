@@ -1,9 +1,13 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 3,
     "name": "Map Project",
     "version": "1.0",
-    "description": "crowd sourcing reporting and updating on infrastructure damage",
-  
+    "description": "A crowdsourced mapping extension that enables volunteers and first responders to report and update information on road conditions, infrastructure damage, and resource needs in disaster-affected areas, facilitating more efficient routing and resource allocation.",
+    "permissions": ["tabs"],
+    "host_permissions": ["https://www.google.com/maps/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
     "content_scripts": [
       {
         "js": ["scripts/content.js"],
@@ -11,5 +15,10 @@
           "https://www.google.com/maps/*"
         ]
       }
-    ]
+    ],
+
+    "action": {
+      "default_title": "Road Conditions",
+      "default_popup": "popup.html"
+    }
   }
